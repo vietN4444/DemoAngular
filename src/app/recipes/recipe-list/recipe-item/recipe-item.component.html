@@ -1,0 +1,10 @@
+<a class="list-group-item d-flex align-items-center justify-content-between nav-link rounded" [routerLink]="[index]"
+    routerLinkActive="active">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">{{recipeItem.name}}</h4>
+        <p class="list-group-item-text m-0">{{recipeItem.description}}</p>
+    </div>
+    <div class="pull-right">
+        <img [src]="recipeItem.imagePath" [alt]="recipeItem.name" class="img-responsive imgLogo" />
+    </div>
+</a>

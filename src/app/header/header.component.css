@@ -1,0 +1,35 @@
+a.myNav_link.nav-link {
+  color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+a.nav-link.active {
+  background: #3d8ee4;
+}
+
+.navbar {
+  padding: 0 1rem;
+  height: 50px;
+}
+
+.myCollapse {
+  height: 100%;
+}
+
+.myCollapse > ul {
+  height: 100%;
+}
+
+.myIconBar {
+  display: block;
+  border-top: 2px solid #fff;
+  width: 20px;
+  height: 1px;
+  margin: 4px 0;
+}
+
+.dropdown-menu {
+  min-width: 100px;
+}

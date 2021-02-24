@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <a class="navbar-brand">Recipe Book</a>
+    <button class=" navbar-toggler d-lg-none" type="button" (click)="collapsed = !collapsed">
+        <span class="myIconBar" *ngFor="let iconBar of [1,2,3]"></span>
+    </button>
+    <div class="collapse navbar-collapse myCollapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 w-100">
+            <li class="nav-item">
+                <a class="nav-link myNav_link" routerLinkActive="active" routerLink="/recipes">Recipe </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link myNav_link" routerLinkActive="active" routerLink="/shopping-list">Shopping
+                    List</a>
+            </li>
+            <li class="nav-item dropdown" [ngClass]="{'ml-auto': collapsed}">
+                <a class="nav-link dropdown-toggle myNav_link" id=" dropdownId" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" (click)="onDropdown($event,dropdownMenu)">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId" #dropdownMenu>
+                    <a class="dropdown-item">Action 1</a>
+                    <a class="dropdown-item">Action 2</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
