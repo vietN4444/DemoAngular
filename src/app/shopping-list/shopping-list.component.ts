@@ -17,6 +17,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
+    // Nếu ingredientsChanged bị thay đổi sẽ gán cho thuộc tính ingredients
     this.isSubscription = this.shoppingListService.ingredientsChanged.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
@@ -26,5 +27,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.isSubscription.unsubscribe();
+  }
+
+  onEdit(id: number) {
+    this.shoppingListService.startedEditing.next(id);
   }
 }

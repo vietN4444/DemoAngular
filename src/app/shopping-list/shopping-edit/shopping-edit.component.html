@@ -1,22 +1,25 @@
 <!-- Local Preference -->
 <div class="row">
     <div class="col-xl-12">
-        <form (submit)="addItem(nameInput.value,amountInput.value)">
+        <form (submit)="addItem(form)" #form="ngForm">
             <div class="row">
                 <div class="col-sm-5 form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control" #nameInput>
+                    <input type="text" id="name" class="form-control" name="name" required ngModel>
                 </div>
                 <div class="col-sm-2 form-group">
                     <label for="amount">Amount</label>
-                    <input type="number" id="amount" class="form-control" #amountInput>
+                    <input type="number" id="amount" class="form-control" name="amount" required ngModel
+                        pattern="^[1-9]+[0-9]*$" #amountInput="ngModel">
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <button class="btn btn-success mx-1" type="submit">Add</button>
-                    <button class="btn btn-danger mx-1" type="button">Delete</button>
-                    <button class="btn btn-primary mx-1" type="button">Clear</button>
+                    <button class="btn btn-success mx-1" type="submit" [disabled]="!form.valid">{{editMode ? 'Update' :
+                        "Add"}}</button>
+                    <button *ngIf="editMode" class="btn btn-danger mx-1" type="button"
+                        (click)="onDelete()">Delete</button>
+                    <button class="btn btn-primary mx-1" type="button" (click)="onClear()">Clear</button>
                 </div>
             </div>
         </form>
